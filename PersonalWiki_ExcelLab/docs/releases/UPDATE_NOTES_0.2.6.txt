@@ -1,0 +1,22 @@
+PersonalWiki ExcelLab 0.2.6 更新紀錄
+
+新增功能
+1. 新增 clean-rules-template：根據既有 mapping.json 建立清理規則範本。
+2. 新增 clean-rules-check：驗證規則版本、工作表、規則 ID、Action 及 TargetFields 是否與欄位對應相符。
+3. 支援規則啟用/停用；預設檢查項目包含 missing-title、duplicate-title、edge-whitespace、control-characters、excel-error。
+
+安全限制
+- 所有規則預設 Action=Review。
+- 目前只允許 Review，不允許自動修改或刪除。
+- 範本建立與規則驗證均為唯讀，不會修改來源 Excel 或資料庫。
+- 本版尚未實作實際清理及 dry-run 匯入。
+
+命令
+ dotnet run -c Release -- clean-rules-template <file.xlsx|file.xlsm> <mapping.json> <rules.json>
+ dotnet run -c Release -- clean-rules-check <file.xlsx|file.xlsm> <mapping.json> <rules.json>
+
+依賴
+無新增套件；沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+
+測試狀態
+尚未實際使用 .NET SDK 編譯或執行測試；本環境未提供 dotnet 命令。請勿將本版視為已通過編譯或執行驗收。

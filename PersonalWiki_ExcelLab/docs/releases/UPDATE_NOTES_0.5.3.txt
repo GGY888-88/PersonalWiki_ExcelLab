@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.5.3
+
+新增命令：
+  dotnet run -c Release -- excel-import-report-json <database.db> <batch-id> <report.json>
+
+功能：
+- 將指定 Excel 匯入批次的完整統計報告輸出為 JSON。
+- 報告包含批次來源、SHA-256、時間、狀態、筆數及條目/欄位/筆記/圖片/標籤/來源/索引/外鍵統計。
+- 資料庫以唯讀方式開啟。
+- 使用 CreateNew 防止覆蓋既有報告；目標檔已存在時停止。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，未變更。
+測試：ZIP integrity 已檢查；目前環境無 .NET SDK，未能 build/run。

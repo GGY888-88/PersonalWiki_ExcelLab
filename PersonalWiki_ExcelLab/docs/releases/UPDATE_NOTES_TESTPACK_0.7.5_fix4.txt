@@ -1,0 +1,13 @@
+0.7.5 TestPack fix4
+
+本次依照 Windows .NET 10 實測結果調整驗收測試預期值。
+
+- 建置已成功；先前 9 個編譯錯誤已排除。
+- 基本自我測試及 10 項其他驗收項目通過。
+- 唯一失敗項目是不存在的資料庫測試：CLI 全域例外處理依設計回傳 exit code 1；驗收腳本錯誤地預期 3。
+- 將該負面測試的預期 exit code 修正為 1。Schema 不一致仍由命令正常回傳 3。
+- 不修改產品程式碼、資料庫 Schema、資料匯入流程或已驗收功能。
+- 不新增相依套件。
+
+請解壓至新資料夾後執行：
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\scripts\run-acceptance-tests.ps1"

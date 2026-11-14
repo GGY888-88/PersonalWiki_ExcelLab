@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+    <AssemblyName>PersonalWiki.ExcelLab</AssemblyName>
+    <RootNamespace>PersonalWiki.ExcelLab</RootNamespace>
+    <Version>4.7.0-dev03</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The release archive retains a nested package snapshot for reference. Exclude it from the root project compile glob to prevent duplicate type definitions. -->
+    <Compile Remove="package/**/*.cs" />
+    <Compile Remove="PersonalWiki.Desktop/**/*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.5.1" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.14" />
+  </ItemGroup>
+</Project>

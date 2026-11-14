@@ -1,0 +1,12 @@
+PersonalWiki ExcelLab 0.7.3
+
+新增：
+- db-schema-compare <left.db> <right.db>
+- 唯讀比較兩個 SQLite 資料庫的 user_version，以及一般資料表、索引、檢視表、觸發器的 sqlite_master SQL 定義。
+- 回傳 JSON 差異清單；完全一致回傳 0，不一致回傳 3。
+- SQL 比較僅正規化空白，不嘗試判斷語意等價；不同但等價的 SQL 寫法可能顯示差異。
+
+安全：兩個資料庫均以 ReadOnly 開啟，不修改來源。
+測試：尚未 dotnet build/run（目前 Linux 環境無 .NET SDK）；ZIP integrity 檢查通過後再交付。
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。

@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.6.9
+
+新增：
+- db-recovery-restore-verify-json <backup.db> <new-database.db> <report.json>
+- 執行 0.6.8 復原驗證並輸出 JSON 結果。
+- 復原/驗證發生例外時，將錯誤類型與訊息寫入失敗報告。
+- 報告目的檔已存在時停止；採 CreateNew，不覆蓋既有報告。
+- JSON 報告成功輸出後，命令依 Success 回傳 0 或 3。
+
+限制：若報告檔案本身因磁碟/權限問題無法寫入，仍無法產生報告；若復原已完成但結果未通過筆數/Schema 比對，會保留新資料庫供人工檢查。
+
+測試：尚未 dotnet build/run（環境無 .NET SDK）；ZIP integrity 於打包後檢查。
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。

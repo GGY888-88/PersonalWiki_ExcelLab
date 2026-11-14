@@ -1,0 +1,16 @@
+PersonalWiki ExcelLab 0.3.1
+
+新增：
+- entry-get：依條目 ID 讀取詳細資料。
+- entry-update：更新標題、類型及摘要，並同步更新 FTS5 全文索引。
+- entry-archive：封存/還原條目，採 is_archived 軟體封存，不實體刪除。
+- field-set：依 entry_id + field_key 新增或更新自訂欄位。
+- field-list：列出自訂欄位及來源追溯欄位。
+
+安全：
+- 所有 SQL 值均使用參數化查詢。
+- 不提供實體刪除條目命令。
+- 不修改原始 Excel。
+
+相依：無新增套件；沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+測試：本執行環境未提供 dotnet SDK，未執行編譯或程式測試。已進行修改範圍的程式碼檢查及 ZIP 完整性檢查。

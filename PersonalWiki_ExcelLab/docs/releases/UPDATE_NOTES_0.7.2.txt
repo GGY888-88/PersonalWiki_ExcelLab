@@ -1,0 +1,13 @@
+PersonalWiki ExcelLab 0.7.2
+
+新增：
+- db-integrity-report-check <database.db> <report.json>
+- 驗證報告記錄的資料庫路徑、檔案大小、SHA-256、Schema 版本、SQLite 健康、全文索引一致性及逐表筆數。
+- 報告與目前資料庫完全吻合且健康時回傳 0；任一項不符回傳 3，並列出 Issues。
+- 新增 DatabaseTableInventoryService，提供唯讀一般資料表筆數盤點。
+
+安全：資料庫與報告均唯讀；不修改資料庫或報告。資料庫在驗證期間若被其他程序寫入，可能導致檢查結果不是同一時間點，建議先暫停寫入。
+
+測試：尚未 dotnet build/run（目前 Linux 環境無 .NET SDK）；需在 Windows/.NET 10 實際執行驗證。ZIP integrity 於打包後檢查。
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。

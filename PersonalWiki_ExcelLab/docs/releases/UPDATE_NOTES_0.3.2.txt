@@ -1,0 +1,20 @@
+PersonalWiki ExcelLab 0.3.2
+
+新增：
+- note-add / note-list / note-update / note-delete：條目筆記新增、查詢、修改及刪除。
+- image-add / image-list / image-remove：建立圖片檔案關聯、列出檔案狀態及移除關聯。
+- image-add 會計算圖片 SHA-256，保存絕對路徑、原始檔名及可辨識的 MIME 類型。
+- image-remove 僅刪除資料庫關聯，不會刪除硬碟原始圖片。
+- source-list：讀取條目既有 Excel 來源追溯紀錄；本版尚未執行 Excel 正式匯入。
+
+使用範例：
+dotnet run -c Release -- note-add .\Data\personal-wiki.db <entry-id> "我的筆記"
+dotnet run -c Release -- note-list .\Data\personal-wiki.db <entry-id>
+dotnet run -c Release -- image-add .\Data\personal-wiki.db <entry-id> .\images\photo.jpg "圖片說明"
+dotnet run -c Release -- image-list .\Data\personal-wiki.db <entry-id>
+dotnet run -c Release -- source-list .\Data\personal-wiki.db <entry-id>
+
+相依套件：無新增；沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料安全：不複製、移動或刪除圖片原檔；移除圖片只刪除資料庫關聯。筆記刪除為資料庫實際刪除。
+測試：已做原始碼靜態檢查與 ZIP 完整性檢查；環境沒有 .NET SDK，未能編譯或執行測試。
+解壓後資料夾名稱固定：PersonalWiki_ExcelLab。

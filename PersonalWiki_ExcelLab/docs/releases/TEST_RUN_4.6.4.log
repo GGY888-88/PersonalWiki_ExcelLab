@@ -1,0 +1,170 @@
+
+=== scripts/test-4.6.4-input-alignment.py ===
+PASS - CLI and Desktop projects are both version 4.6.4
+PASS - custom vertical-centering control is an outer UserControl container
+PASS - inner editor remains a native single-line TextBox
+PASS - inner editor uses native preferred height
+PASS - inner editor is placed inside the outer border container
+PASS - inner editor is centered vertically from its preferred height
+PASS - outer control preserves the existing sunken input border
+PASS - native cue banner is retained through the inner TextBox
+PASS - read-only, clear, select, and copy operations proxy to the inner editor
+PASS - text-changed events are synchronized to the outer control
+PASS - mouse double-click is forwarded for database path copy
+PASS - database/search/tag fields remain the only custom wrapped fields
+PASS - database path read-only and copy behavior is retained
+PASS - full-text search Enter behavior is forwarded from the inner editor
+PASS - tag and database tooltips are also attached to the actual inner editor
+PASS - image filter remains an untouched standard TextBox
+PASS - entry title and type remain their original standard single-line TextBoxes
+PASS - multi-line summary remains unchanged
+PASS - the old native-format-rectangle workaround is not used
+PASS - main action button size bounds remain unchanged
+PASS - PerMonitorV2 remains enabled
+PASS - 01_建置程式.bat is ASCII and CRLF
+PASS - 01_建置程式.bat does not change CMD code page
+PASS - 01_建置程式.bat has no localized console literals
+PASS - 02_啟動程式.bat is ASCII and CRLF
+PASS - 02_啟動程式.bat does not change CMD code page
+PASS - 02_啟動程式.bat has no localized console literals
+PASS - 03_建置並啟動.bat is ASCII and CRLF
+PASS - 03_建置並啟動.bat does not change CMD code page
+PASS - 03_建置並啟動.bat has no localized console literals
+PASS - build output is redirected to a persistent log
+PASS - failed build log opens in Notepad rather than CMD type
+PASS - build-and-start has no pause between build and app launch
+PASS: 33/33 4.6.4 input-alignment and BAT checks
+
+=== scripts/test-4.6.4-dpi-regression.py ===
+PASS - CLI and Desktop versions are synchronized at 4.6.4
+PASS - Desktop uses PerMonitorV2
+PASS - forms use explicit 96 DPI baseline and Dpi autoscaling
+PASS - forms are clamped to the current working area
+PASS - main window is DPI scaled and work-area aware
+PASS - main action buttons wrap as whole buttons without a horizontal scrollbar
+PASS - database field is placed before search filters
+PASS - main filter toolbar uses two explicit rows so right-side dates stay reachable
+PASS - filter captions are auto-sized and paired in fixed non-wrapping panels
+PASS - filter captions vertically center against their DPI-sized inputs
+PASS - four toolbar regions are measured using actual device-pixel heights
+PASS - single-line search inputs calculate sufficient text height at active DPI
+PASS - notes and images toolbars expand to avoid clipped button captions
+PASS - search and action rows recalculate after child size changes
+PASS - all three Excel wizard forms use Dpi autoscaling
+PASS - all three Excel wizard forms are work-area aware
+PASS - wizard help labels adapt to available width
+PASS - mapping header can wrap and footer buttons can wrap
+PASS - cleaning rule checkboxes calculate wrapped text height
+PASS - wizard tables remain dock-filled with header auto sizing
+PASS - Excel preview rows auto-size and wrap cell text at 300%
+PASS - tag-management dialogs are DPI and working-area aware
+PASS - no service or database source is referenced by this patch test
+PASS: 23 DPI release checks
+
+=== scripts/test-4.6.2-filter-layout.py ===
+PASS - main toolbar uses separate action, filter and query panels
+PASS - general search filters occupy the first fixed row
+PASS - date ranges and sorting occupy the second fixed row
+PASS - filter row groups remain horizontally scrollable as complete pairs
+PASS - filter labels cannot wrap into narrow vertical columns
+PASS - caption and input use explicit positions in a fixed panel
+PASS - query buttons and paging controls occupy a dedicated panel
+PASS - toolbar layout recalculates device-pixel heights independently
+PASS - action buttons wrap at available width without a horizontal scrollbar
+PASS - action button rows preserve whole button bounds
+PASS - date filter uses an independent checkbox control
+PASS - native DateTimePicker checkbox is disabled to prevent internal overlap
+PASS - date picker and checkbox have explicitly separated bounds
+PASS - date filter preserves Checked and Value query semantics
+PASS - date filter layouts refresh after DPI change
+PASS: 15/15 toolbar and date-filter checks
+
+=== scripts/test-4.6.2-responsive-tables.py ===
+PASS - main result list uses an adaptive width layout
+PASS - related entries list uses an adaptive width layout
+PASS - adaptive list columns use live client width
+PASS - adaptive list columns reserve a small native border inset
+PASS - adaptive list columns scale readable minimums to active DPI
+PASS - adaptive list columns respond to resize and monitor DPI changes
+PASS - remaining width is distributed after readable column minimums are reserved
+PASS - column width rounding remainder expands the text-heavy column
+PASS - only panes narrower than all readable minimums need horizontal scrolling
+PASS - Excel preview grid fills the available horizontal space
+PASS - unused preview grid viewport uses a white window background instead of AppWorkspace grey
+PASS - Excel preview fill weights are based on header and sample text
+PASS - Excel preview columns keep useful minimum widths
+PASS - Excel preview keeps wrapped text and auto-sized rows
+PASS - preview width measurement caps long text to avoid one column consuming the grid
+PASS: 15/15 responsive-table checks
+
+=== scripts/test-4.6.2-viewport-space.py ===
+PASS - main toolbar uses a single explicit pixel layout pass
+PASS - database, keyword, type, archive and tag controls are in row one
+PASS - both date ranges and sort are in row two
+PASS - filter rows remain horizontally scrollable without splitting caption/input groups
+PASS - action buttons wrap as complete controls rather than being clipped
+PASS - query actions occupy a dedicated visible row
+PASS - ListView columns allocate minimum widths before distributing available width
+PASS - ListView columns reserve a native border inset to avoid tiny horizontal overflow
+PASS - Excel preview DataGridView is explicitly dock-filled
+PASS - Excel preview unused client area uses the normal white window background
+PASS - Excel preview retains fill columns, wrapped text and automatic row heights
+PASS - wizard footer remains separate from the preview table
+PASS: 12/12 viewport-space checks
+
+=== scripts/test-4.6.2-build-fix.py ===
+PASS - text sizing DPI owner is a Form
+PASS - toolbar DPI owner is a Form
+PASS - wrapped toolbar height is measured across available width
+PASS - ControlAdded safely handles nullable Control
+PASS - new control events attach to the non-null local
+PASS - DateFilterControl.Checked is explicitly excluded from designer serialization
+PASS - DateFilterControl.Value is explicitly excluded from designer serialization
+PASS - DateFilterControl imports designer serialization metadata
+PASS - query sort is normalized before lookup and reuse
+PASS - query-plan sort is normalized before lookup and reuse
+PASS: 10/10 build-fix static checks
+
+=== scripts/test-4.6.4-main-ui-regression.py ===
+PASS  main button setting lower bound 40
+PASS  main button height lower bound 20
+PASS  main button settings dialog lower bound
+PASS  main button compact padding
+PASS  main button compact font
+PASS  keyword uses vertically centered textbox
+PASS  tag filter uses vertically centered textbox
+PASS  database path uses vertically centered textbox
+PASS  native single-line editor is centered inside a fixed-height wrapper
+PASS  build bat exists
+PASS  run bat exists
+PASS  build and run bat exists
+PASS  build log retained without echoing it into CMD
+PASS  build errors open the log in Notepad
+PASS  one-click build-run does not pause between build and launch
+
+15/15 checks passed
+
+=== scripts/run-4.6.1-python-tests.py ===
+
+=== scripts/test-4.6.1-ui.py ===
+PASS - main form separates action buttons, filter rows, and query controls in a pixel-based layout
+PASS - database path is grouped before the full-text search filter
+PASS - search filters retain fixed non-wrapping groups across the two explicit rows
+PASS - filter labels are non-wrapping and paired with their input in fixed panels
+PASS - dedicated database bar removed
+PASS - first data row label uses adaptive dimensions
+PASS - import mapping header uses auto-sized wrapping layout
+PASS - CLI and Desktop project versions remain synchronized
+PASS: 8 UI release checks
+
+=== scripts/test-4.6.0-query-acceptance.py ===
+PASS acceptance comparator and case-suite self-test
+Acceptance: 0/1 passed, 1 failed; report: /tmp/pw46-runner-test-hqwbapub/failure-report
+PASS 4.6.0 acceptance contract checks: 35/35
+PASS: 4.6.1 UI checks and 4.6.0 acceptance regression
+
+=== scripts/test-4.6.0-query-acceptance.py ===
+PASS acceptance comparator and case-suite self-test
+Acceptance: 0/1 passed, 1 failed; report: /tmp/pw46-runner-test-vrrtx18g/failure-report
+PASS 4.6.0 acceptance contract checks: 35/35
+PASS: 4.6.4 composite input checks plus retained 4.6.2 / 4.6.1 / 4.6.0 regressions

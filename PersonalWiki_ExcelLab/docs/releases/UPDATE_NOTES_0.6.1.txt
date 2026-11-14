@@ -1,0 +1,18 @@
+PersonalWiki ExcelLab 0.6.1
+
+新增：Excel 匯入整合預檢 JSON 報告。
+
+命令：
+  dotnet run -c Release -- excel-import-preflight-json <workbook.xlsm> <mapping.json> <rules.json> <report.json>
+
+功能：執行 0.6.0 的整合預檢，將完整結果輸出為 JSON，包含來源 SHA-256、mapping 驗證、清理規則驗證、Dry-run 結果、阻擋原因及安全提示。
+
+安全性：
+- Excel、mapping、rules 均唯讀。
+- 不寫入 SQLite。
+- 使用 CreateNew，不覆蓋既有報告。
+- 若預檢未通過仍會產生報告，並以結束碼 3 表示不可匯入。
+
+相依套件：無新增，沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，不變。
+測試：ZIP 完整性通過；環境沒有 .NET SDK，未能編譯或執行 CLI。

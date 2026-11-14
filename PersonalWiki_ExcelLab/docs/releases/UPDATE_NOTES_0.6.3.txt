@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.6.3
+
+新增：excel-import-db-safety <database.db> <backup.db>
+- 唯讀檢查目標資料庫 quick_check、foreign_key_check 及 Schema 版本。
+- 只有檢查通過才建立 SQLite 一致性備份。
+- 備份目的檔不得已存在，避免覆蓋。
+- 對新備份再次執行完整性、外鍵及 Schema 檢查，並計算 SHA-256。
+- 若新備份驗證失敗，只刪除本次建立的備份檔並回報錯誤。
+- 此命令不執行 Excel 匯入；正式匯入仍需另行執行 excel-import-db。
+
+資料安全：不修改目標資料庫、來源 Excel 或圖片。備份會新增一個資料庫檔案。
+資料庫 Schema：Version 1，不變。
+相依套件：無新增；沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+測試：ZIP integrity 檢查；尚未 build/run（目前環境沒有 .NET SDK）。

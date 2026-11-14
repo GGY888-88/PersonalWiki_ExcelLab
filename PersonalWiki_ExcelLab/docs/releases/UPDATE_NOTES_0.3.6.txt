@@ -1,0 +1,18 @@
+PersonalWiki ExcelLab 0.3.6
+==========================
+
+新增：SQLite 知識庫唯讀健康檢查。
+
+命令：
+  db-check <database.db>
+
+檢查內容：
+- PRAGMA quick_check：檢查 SQLite 資料庫結構與頁面完整性。
+- PRAGMA foreign_key_check：檢查資料表外鍵關聯是否存在違規。
+- 回報資料庫 schema version、檢查結果、外鍵問題清單及 IsHealthy。
+- IsHealthy 為 true 時程序結束碼 0；檢查未通過時結束碼 3。
+- 僅以唯讀模式開啟資料庫，不會修復、重建、刪除或修改任何資料。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫結構：無變更，沿用 schema version 1。
+測試：本執行環境未提供 dotnet SDK，未能編譯或實際執行；已進行程式碼結構檢查及 ZIP 完整性檢查。

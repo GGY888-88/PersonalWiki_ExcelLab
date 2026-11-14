@@ -1,0 +1,13 @@
+PersonalWiki ExcelLab 0.7.4
+
+新增：
+- db-schema-snapshot <database.db> <snapshot.json>
+  唯讀讀取 SQLite user_version 與 sqlite_master 中的 table/index/view/trigger 定義，建立含逐物件 SHA-256 及整體 SHA-256 的 JSON Schema 快照。
+  快照輸出使用 CreateNew，目的檔已存在即停止，不覆蓋。
+- db-schema-snapshot-check <database.db> <snapshot.json>
+  唯讀驗證快照自身雜湊、資料庫版本、物件集合及逐物件定義雜湊；不一致回傳 exit code 3。
+
+安全：資料庫以 SQLite ReadOnly 開啟；不寫入資料庫；不修改來源快照；不覆蓋既有輸出。
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。
+測試：尚未 dotnet build/run（目前環境無 .NET SDK）；僅進行靜態檢查及 ZIP integrity 檢查。

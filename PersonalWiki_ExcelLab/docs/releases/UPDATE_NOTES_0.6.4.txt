@@ -1,0 +1,13 @@
+PersonalWiki ExcelLab 0.6.4
+
+新增命令：
+excel-import-db-safety-json <database.db> <backup.db> <report.json>
+- 執行 0.6.3 相同的資料庫完整性、外鍵、Schema 及備份驗證。
+- 成功後輸出 JSON 安全檢查報告，包含備份路徑、SHA-256、大小及檢查結果。
+- 報告使用 CreateNew，不覆蓋既有檔案。
+- 不執行 Excel 匯入。
+
+無新增套件。SQLite Schema Version 1 不變。
+沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料安全：來源資料庫唯讀檢查；新增獨立備份與報告檔；不修改 Excel、圖片或既有資料庫。
+測試：ZIP integrity 通過；尚未 build/run（目前環境沒有 .NET SDK）。

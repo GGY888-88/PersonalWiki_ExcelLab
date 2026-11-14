@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.3.4
+
+新增：
+- tag-add：為條目新增標籤；相同條目不會重複新增相同標準化標籤。
+- tag-remove：移除指定條目的標籤。
+- tag-list：列出條目標籤。
+- tag-search：依標籤尋找未封存條目。
+- 標籤使用 Unicode Form KC 與不區分大小寫的標準化值進行比對；原始顯示文字保留。
+- 標籤長度限制 100 字元，不接受空白。
+
+相依套件：無新增。
+資料安全：只修改知識庫標籤資料，不修改 Excel 或圖片檔案。
+測試：靜態檢查及 ZIP 完整性檢查；無 .NET SDK，未能編譯或執行測試。
+解壓後資料夾名稱固定：PersonalWiki_ExcelLab。

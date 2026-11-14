@@ -1,0 +1,21 @@
+PersonalWiki ExcelLab 0.6.8
+
+新增：
+- db-recovery-restore-verify <backup.db> <new-database.db>
+- 還原前以唯讀方式檢查備份資料庫健康狀態；不健康則停止。
+- 還原至全新目的路徑，不覆蓋既有資料庫。
+- 還原後檢查 quick_check、foreign_key_check、Schema version，以及所有一般資料表的筆數是否一致。
+- 輸出來源/還原檔 SHA-256 與逐表筆數比較結果。
+
+安全：
+- 備份來源唯讀；原備份不修改。
+- 目的檔已存在時停止。
+- 若還原後驗證流程發生例外，刪除本次建立的目的檔；若驗證結果為不一致，保留目的檔供檢查，IsVerified=false。
+- 本版本比對資料表筆數及 Schema/健康狀態，不代表逐欄位內容逐筆相等；SHA-256 為各檔案獨立雜湊，不要求兩檔相同。
+
+測試：
+- 尚未 dotnet build/run（目前執行環境無 .NET SDK）。
+- ZIP integrity 於打包後檢查。
+
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。

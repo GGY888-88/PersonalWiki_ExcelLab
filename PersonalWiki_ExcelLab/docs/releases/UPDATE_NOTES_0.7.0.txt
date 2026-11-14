@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.7.0
+
+新增：
+- db-content-compare <left.db> <right.db>
+- 唯讀比較兩個 SQLite 資料庫的 user_version、一般資料表集合、逐表筆數及逐表內容 SHA-256。
+- 內容雜湊依欄位順序與完整列資料計算；輸出每表比較結果及總體 IsEqual。
+- 兩個資料庫均以 ReadOnly 開啟，不修改來源。
+- 不一致回傳 exit code 3；完全一致回傳 0。
+
+限制：此比較用於相同 Schema 的資料庫邏輯內容核對；不同 SQLite affinity/驅動回傳型別可能造成保守性不一致。大型資料庫需要完整掃描所有資料表，執行時間與資料量成正比。
+
+測試：尚未 dotnet build/run（環境無 .NET SDK）；ZIP integrity 於打包後檢查。
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。

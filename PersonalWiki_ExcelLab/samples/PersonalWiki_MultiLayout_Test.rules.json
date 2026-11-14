@@ -1,0 +1,132 @@
+{
+  "SchemaVersion": 1,
+  "SourceFileName": "PersonalWiki_MultiLayout_Test.xlsx",
+  "MappingFileName": "PersonalWiki_MultiLayout_Test.mapping.json",
+  "CreatedAtUtc": "2026-11-14T00:00:00+00:00",
+  "Sheets": [
+    {
+      "SheetName": "人物",
+      "Rules": [
+        {
+          "RuleId": "missing-title",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "標題空白"
+        },
+        {
+          "RuleId": "duplicate-title",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "標題重複"
+        },
+        {
+          "RuleId": "edge-whitespace",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "前後空白"
+        },
+        {
+          "RuleId": "control-characters",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "控制字元"
+        },
+        {
+          "RuleId": "excel-error",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "Excel 錯誤值"
+        }
+      ]
+    },
+    {
+      "SheetName": "設備",
+      "Rules": [
+        {
+          "RuleId": "missing-title",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "標題空白"
+        },
+        {
+          "RuleId": "duplicate-title",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "標題重複"
+        },
+        {
+          "RuleId": "edge-whitespace",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "前後空白"
+        },
+        {
+          "RuleId": "control-characters",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "控制字元"
+        },
+        {
+          "RuleId": "excel-error",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "Excel 錯誤值"
+        }
+      ]
+    },
+    {
+      "SheetName": "閱讀清單",
+      "Rules": [
+        {
+          "RuleId": "missing-title",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "標題空白"
+        },
+        {
+          "RuleId": "duplicate-title",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "標題重複"
+        },
+        {
+          "RuleId": "edge-whitespace",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "前後空白"
+        },
+        {
+          "RuleId": "control-characters",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "控制字元"
+        },
+        {
+          "RuleId": "excel-error",
+          "Enabled": true,
+          "Action": "Review",
+          "TargetFields": [],
+          "Description": "Excel 錯誤值"
+        }
+      ]
+    }
+  ],
+  "Instructions": [
+    "所有規則均為 Review。",
+    "只列出待人工確認項目，不會自動修正、合併或刪除資料。"
+  ]
+}

@@ -1,0 +1,11 @@
+PersonalWiki ExcelLab 0.3.9
+
+新增：
+- db-export-check <export.json>
+- 唯讀驗證 JSON 匯出格式版本、資料庫 Schema 版本、必要資料表陣列及主要識別欄位。
+- 回報各表筆數、錯誤及未知資料表警告；驗證錯誤回傳結束碼 3。
+- 不修改 JSON、SQLite 資料庫、Excel 或圖片檔。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：維持 Version 1。
+測試：ZIP 完整性檢查通過；目前執行環境未提供 dotnet SDK，未能執行 dotnet build 或實際驗證測試。

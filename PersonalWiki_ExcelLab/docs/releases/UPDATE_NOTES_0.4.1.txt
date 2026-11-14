@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.4.1
+
+新增：
+- db-import-json <database.db> <import.json>
+- 正式匯入前自動執行 0.4.0 預檢；檢查失敗或與目標資料衝突時拒絕寫入。
+- 僅允許匯入至已初始化、且 entries 與 import_batches 均為空的知識庫，避免覆蓋或合併既有資料。
+- 依外鍵順序匯入並保留原始識別碼；單一 SQLite transaction 寫入，錯誤時回滾。
+- 匯入後重建 FTS5 搜尋索引並執行外鍵檢查。
+- 圖片只匯入路徑及 metadata，不複製圖片檔案。
+
+安全限制：正式匯入會修改目標資料庫；執行前請先備份。來源 JSON、原始 Excel 與圖片不會被修改。僅支援空白目標資料庫，不自動合併。
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：維持 Version 1。
+測試：ZIP 完整性檢查通過；目前環境無 .NET SDK，未能執行 build/run。正式匯入及 FTS5 SQL 仍需使用者環境實測。

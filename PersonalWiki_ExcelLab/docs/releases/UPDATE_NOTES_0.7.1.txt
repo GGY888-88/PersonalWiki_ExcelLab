@@ -1,0 +1,13 @@
+PersonalWiki ExcelLab 0.7.1
+
+新增：
+- db-integrity-report <database.db> <report.json>
+- 唯讀盤點資料庫檔案 SHA-256/大小、Schema version、SQLite quick_check、foreign_key_check、全文索引一致性及一般資料表筆數。
+- 將結果輸出為 JSON；報告目的檔已存在時停止，不覆蓋。
+- 回傳碼：健康且索引一致為 0；檢查結果不健康為 3；執行錯誤由 CLI 顯示例外。
+
+安全：資料庫以 ReadOnly 開啟；不修改資料庫、不修復索引、不覆蓋報告。報告產生期間若其他程式同時修改資料庫，檔案雜湊、健康檢查與逐表筆數可能不是同一時間點的快照，建議執行前暫停其他寫入工作。
+
+測試：尚未 dotnet build/run（目前 Linux 環境無 .NET SDK）；需在 Windows/.NET 10 實際執行驗證。ZIP integrity 於打包後檢查。
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。

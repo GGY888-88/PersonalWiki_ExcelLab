@@ -1,0 +1,23 @@
+PersonalWiki_ExcelLab 0.7.5 - Test issues / pending verification
+
+Fixed in TestPack fix1:
+- The original run-acceptance-tests.ps1 contained Traditional Chinese text saved as UTF-8 without a BOM. Windows PowerShell 5.1 may decode that file using the active ANSI code page, causing garbled text and a parser error near the final Write-Host statement.
+- The fixed script uses ASCII-only source text, so it does not depend on PowerShell's source-file encoding detection.
+
+Pending user-side tests:
+1. Run the acceptance script on Windows with .NET 10 SDK installed.
+2. Confirm dotnet restore/build succeeds.
+3. Review AcceptanceTestReport.json for PASS/FAIL results.
+4. Verify negative-test exit-code handling.
+5. Excel import against a COPY of the original workbook remains a separate manual test; the acceptance script does not modify or import the user's original Excel file.
+
+Known environment limitation:
+- This package was assembled in an environment without the .NET SDK and without Windows PowerShell, so the PowerShell script could not be executed here. ZIP integrity is checked separately.
+
+[FIX2] 修正測試包根目錄專案的 Compile 預設遞迴：排除 package/**/*.cs。先前 277 個 CS0101/CS0111/CS8863 錯誤是巢狀 package/PersonalWiki_ExcelLab 原始碼被根專案重複編譯造成，不代表 277 個獨立程式缺陷。
+
+
+fix3：依 Windows 編譯 log 修正 9 個編譯錯誤的根因（dynamic 回傳型別、重複區域變數、nullable int）。尚未在 Windows .NET 10 實際編譯。詳見 UPDATE_NOTES_TESTPACK_0.7.5_fix3.txt。
+
+
+TestPack fix4：依實測將「不存在資料庫」負面測試預期 exit code 從 3 修正為 1。產品程式碼未修改；Schema 不一致仍預期回傳 3。

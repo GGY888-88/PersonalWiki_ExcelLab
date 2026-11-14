@@ -1,0 +1,13 @@
+PersonalWiki ExcelLab 0.4.0
+
+新增：
+- db-import-preview <database.db> <import.json>
+- 唯讀檢查 JSON 格式版本、Schema 版本、必要資料表及條目識別欄位。
+- 檢查匯入檔內重複 ID、重複標題/類型，以及欄位、筆記、圖片、來源、標籤對應的 entry_id 是否存在。
+- 與目標資料庫比對 Schema、既有 ID 與標題/類型衝突，輸出筆數、錯誤及警告。
+- 只做預覽，不寫入資料庫、不修改 JSON、Excel 或圖片；遇到衝突不自動合併。
+- 圖片只檢查關聯，不複製圖片檔案。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：維持 Version 1。
+測試：ZIP 完整性檢查通過；目前環境無 .NET SDK，未能執行 build/run。

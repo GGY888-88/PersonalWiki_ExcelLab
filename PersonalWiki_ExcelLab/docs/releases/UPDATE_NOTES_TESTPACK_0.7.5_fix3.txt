@@ -1,0 +1,10 @@
+0.7.5 TestPack fix3
+
+修正內容（依 Windows .NET 10 編譯回報）：
+- DatabaseImportPreviewService.Preview、DatabaseExportValidationService.Validate、DatabaseImportVerificationService.Verify 改為 dynamic 回傳，保留原匿名物件 JSON 欄位，同時讓呼叫端可存取 IsValid / CanImport / IsVerified。
+- Program.cs 的 Excel import-preview 區域變數改名為 excelImportPreview，避免與 db-import-preview case 的區域變數重複。
+- EntryDetailService.cs 的 SourceRow null 分支明確使用 int?，修正 null/int 條件運算式型別推斷錯誤。
+
+未修改資料庫 Schema、匯入流程、資料安全規則或既有功能邏輯。
+
+測試狀態：本環境沒有 .NET SDK，未能執行 dotnet build/run。請在 Windows .NET 10 執行 scripts/run-acceptance-tests.ps1 驗證。

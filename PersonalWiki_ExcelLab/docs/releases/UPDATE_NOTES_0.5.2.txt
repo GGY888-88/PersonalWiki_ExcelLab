@@ -1,0 +1,15 @@
+PersonalWiki ExcelLab 0.5.2
+
+新增命令：
+  dotnet run -c Release -- excel-import-batches <database.db> [limit]
+  dotnet run -c Release -- excel-import-report <database.db> <batch-id>
+
+功能：
+- 唯讀列出最近的 Excel 匯入批次，預設 50 筆，允許 1–500 筆。
+- 顯示來源檔案、SHA-256、開始/完成時間、狀態、來源/匯入/拒絕筆數及備註。
+- 指定批次輸出條目、欄位、筆記、圖片關聯、標籤、來源追溯、缺少 FTS 索引及外鍵違規統計。
+- 不修改資料庫，不刪除資料，不複製或移動圖片。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，未變更。
+測試：ZIP integrity 已檢查；目前環境無 .NET SDK，未能 build/run。需在 Windows/.NET 10 環境實測資料表統計查詢。
