@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.3.8
+
+新增：
+- db-export-json <database.db> <export.json>
+- 以唯讀連線及 SQLite 讀取交易匯出資料，包含 schema_migrations、import_batches、entries、entry_fields、entry_notes、entry_images、entry_sources、entry_tags。
+- 保留所有資料列識別碼及關聯欄位；輸出 formatVersion=1、資料庫 schema 版本、匯出時間與各表筆數。
+- 不匯出可重建的 entries_fts FTS5 衍生索引，匯入端可使用 db-index-rebuild 重建。
+- 目的檔已存在時拒絕覆蓋；先寫同目錄暫存檔，完成後再移至目的路徑。
+- 唯讀操作，不修改來源資料庫、原始 Excel 或圖片檔。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：維持 Version 1。
+測試：ZIP 完整性檢查通過；目前執行環境未提供 dotnet SDK，未能執行 dotnet build 或實際匯出測試。
+注意：本版提供 JSON 匯出，尚未提供 JSON 重新匯入功能。

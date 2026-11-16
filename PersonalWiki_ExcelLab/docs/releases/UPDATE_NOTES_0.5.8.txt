@@ -1,0 +1,23 @@
+PersonalWiki ExcelLab 0.5.8
+
+新增：Excel 匯入批次自訂欄位差異比較。
+
+既有命令擴充：
+  excel-import-batch-diff <database.db> <earlier-batch-id> <later-batch-id>
+  excel-import-batch-diff-json <database.db> <earlier-batch-id> <later-batch-id> <report.json>
+
+比較內容：
+- 延續 0.5.6 的條目新增、移除、標題、類型及摘要比較。
+- 新增自訂欄位比較：欄位新增、移除、欄位標籤、值及值類型變更。
+- JSON 報告會包含欄位變更前後快照，以及新增/移除/變更欄位統計。
+- 欄位依 field_key 配對；來源限定為各自批次 source_batch_id 的欄位資料。
+
+安全性：
+- 資料庫唯讀開啟，不修改條目、欄位、批次或索引。
+- JSON 輸出仍使用 CreateNew，不覆蓋既有報告。
+- 不修改來源 Excel 或圖片。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，不變。
+
+測試狀態：已進行變更範圍檢視及 ZIP 完整性檢查；目前環境沒有 .NET SDK，未能編譯或實際執行 CLI 測試。

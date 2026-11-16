@@ -1,0 +1,23 @@
+PersonalWiki ExcelLab 0.2.3 更新紀錄
+
+新增：
+1. import-quality 唯讀資料品質分析。
+2. 統計各欄非空白數、空白數、公式數及疑似錯誤值數。
+3. 偵測空白標題與重複欄位名稱。
+4. 每欄最多保留 3 個樣本值。
+5. 可輸出完整 JSON 報告；不指定報告路徑時只顯示精簡摘要。
+
+用法：
+dotnet run -c Release -- import-quality .\資料.xlsm
+dotnet run -c Release -- import-quality .\資料.xlsm .\Reports\資料品質.json
+
+相依套件：未新增。
+來源 Excel：只讀取，不修改。
+資料庫：本版不執行正式匯入。
+既有功能：保留 0.2.2 原有命令與服務。
+解壓資料夾：PersonalWiki_ExcelLab，不帶版本號。
+
+注意：
+- 空白數以非空白資料列為基準；整列空白另外計數。
+- 公式錯誤判斷依 Excel 檔內快取文字，不會計算公式。
+- 尚未在 Windows .NET 10 環境實際編譯，需由使用者端建置確認。

@@ -1,0 +1,24 @@
+PersonalWiki ExcelLab 0.3.5
+==========================
+
+新增：多條件、可分頁的知識條目查詢。
+
+命令：
+  entry-query <database.db> [keyword] [--type value] [--tag value] [--archived exclude|include|only] [--page n] [--page-size n]
+
+範例：
+  dotnet run -c Release -- entry-query .\Data\personal-wiki.db "人物" --type "演員" --tag "收藏" --page 1 --page-size 30
+  dotnet run -c Release -- entry-query .\Data\personal-wiki.db --archived include
+  dotnet run -c Release -- entry-query .\Data\personal-wiki.db --archived only
+
+行為：
+- 關鍵字使用既有 FTS5 全文索引。
+- 可同時套用類型與標籤條件。
+- archived=exclude（預設）不顯示封存條目；include 顯示全部；only 只顯示封存條目。
+- page 從 1 開始；page-size 限制 1 至 200。
+- 回傳總筆數、總頁數、條目摘要、封存狀態及標籤。
+- 唯讀查詢，使用 SQL 參數，不修改資料庫。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫結構：無變更，沿用 schema version 1。
+測試：本執行環境未提供 dotnet SDK，未能編譯或實際執行；已進行程式碼檢查及 ZIP 完整性檢查。

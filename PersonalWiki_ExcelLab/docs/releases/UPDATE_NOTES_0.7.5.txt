@@ -1,0 +1,12 @@
+PersonalWiki ExcelLab 0.7.5
+
+新增：
+- db-schema-snapshot-check-json <database.db> <snapshot.json> <report.json>
+  執行 Schema 快照驗證，無論驗證成功或失敗均輸出 JSON 結果；驗證過程例外會記錄錯誤類型及訊息。
+  報告路徑已存在即停止，不覆蓋；驗證不通過回傳 exit code 3。
+- 強化 0.7.4 快照檢查：逐項重新計算快照內 SQL 定義 SHA-256，檢查定義雜湊與 JSON 整體雜湊。
+
+安全：資料庫 ReadOnly；不修改資料庫與快照；報告 CreateNew 不覆蓋。
+相依套件不變：DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema version 不變：1。
+測試：尚未 dotnet build/run（目前環境無 .NET SDK）；僅靜態檢查及 ZIP integrity 檢查。

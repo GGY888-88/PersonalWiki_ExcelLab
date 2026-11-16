@@ -1,0 +1,11 @@
+PersonalWiki ExcelLab 0.3.3
+
+新增：
+- db-backup <database.db> <backup.db>：使用 SQLite Backup API 建立一致性備份，可在資料庫使用期間複製一致狀態。
+- db-restore <backup.db> <new-database.db>：還原至新路徑，並執行 PRAGMA integrity_check。
+- 備份與還原均拒絕覆蓋已存在的目的檔，避免誤刪既有資料。
+
+相依套件：無新增；沿用 Microsoft.Data.Sqlite 10.0.14、DocumentFormat.OpenXml 3.5.1。
+資料安全：不覆蓋目的資料庫；還原目標必須不存在。若還原完整性檢查失敗，會嘗試刪除本次建立的目標檔。
+測試：原始碼靜態檢查及 ZIP 完整性檢查；執行環境沒有 .NET SDK，未能編譯或執行測試。
+解壓後資料夾名稱固定：PersonalWiki_ExcelLab。

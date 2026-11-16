@@ -1,0 +1,12 @@
+PersonalWiki ExcelLab 0.6.7
+
+新增：
+- excel-import-db-safe-json <database.db> <file.xlsx|file.xlsm> <mapping.json> <rules.json> <backup.db> <report.json>
+- 執行 0.6.6 的預檢、備份、雜湊再確認、交易式匯入及批次驗證流程，並將完整結果保存為 JSON。
+- 執行匯入前先確認報告目的檔不存在；報告採 CreateNew，不覆蓋既有檔案。
+- 報告包含各階段結果、備份位置與 SHA-256、批次 ID、匯入筆數及安全限制。
+
+安全：沿用 0.6.6 安全限制；若匯入後驗證失敗，回報錯誤且保留備份，不自動回滾已提交資料。JSON 報告只在整個匯入流程成功後寫出。
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：Version 1，未變更。
+測試：ZIP 完整性檢查；未編譯、未執行（目前環境沒有 dotnet SDK）。

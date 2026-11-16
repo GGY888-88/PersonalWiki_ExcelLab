@@ -1,0 +1,10 @@
+PersonalWiki ExcelLab 0.7.5 集中測試包（不變更產品版本）
+
+新增測試資產：
+- TEST_GUIDE_0.7.5.md：測試說明、執行方式、安全限制及已知問題。
+- TEST_ISSUES_0.7.5.txt：待測項目及問題回報清單。
+- scripts/run-acceptance-tests.ps1：Windows 一鍵 Release build、self-test、資料庫完整性/Schema/內容比較及負向測試。
+
+產品程式碼與資料庫 Schema 未修改；產品版本仍為 0.7.5。
+無新增相依套件。
+開發環境無 .NET SDK，故未執行此測試腳本；僅打包及 ZIP 完整性檢查。

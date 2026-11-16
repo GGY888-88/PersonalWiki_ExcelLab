@@ -1,0 +1,15 @@
+PersonalWiki ExcelLab 0.5.1
+
+新增命令：
+  dotnet run -c Release -- excel-import-verify <database.db> <batch-id>
+
+功能：
+- 唯讀檢查指定 Excel 匯入批次是否完成。
+- 比對批次匯入筆數與來源追溯筆數。
+- 檢查匯入條目是否都有 FTS5 索引。
+- 檢查資料庫外鍵完整性。
+- 回報批次欄位筆數及問題清單。
+
+安全：唯讀，不修改資料庫；不刪除或修復任何資料。
+相依套件：無新增。Schema：Version 1，未變更。
+測試：ZIP integrity 通過；目前環境無 .NET SDK，未能 build/run。

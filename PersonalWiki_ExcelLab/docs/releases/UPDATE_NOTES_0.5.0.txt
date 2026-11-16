@@ -1,0 +1,22 @@
+PersonalWiki ExcelLab 0.5.0
+
+新增：Excel 正式匯入 SQLite
+命令：
+  dotnet run -c Release -- excel-import-db <database.db> <file.xlsx|file.xlsm> <mapping.json> <rules.json>
+
+功能：
+- 沿用 mapping 與清理規則驗證，並先執行 dry-run。
+- 任何啟用規則命中需人工檢查時，整批停止，不寫入資料。
+- 以工作表名稱作為條目類型；Title 作為條目標題；Content 合併為摘要；Attribute 寫入自訂欄位。
+- 寫入匯入批次、條目、欄位、來源追溯及 FTS5 索引。
+- 單一 SQLite 交易；遇到唯一鍵衝突或其他錯誤即回滾。
+- 原始 Excel 唯讀，不修改來源檔；不匯入圖片檔案。
+
+資料安全：
+- 正式匯入會修改目標 SQLite，執行前應先備份。
+- 重複條目依資料庫唯一限制拒絕，不自動覆蓋、合併或跳過。
+- 本版尚未支援重複資料的互動式處理策略。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，未變更。
+測試：ZIP integrity 已檢查；目前環境無 .NET SDK，未能 build/run，尚未實際驗證匯入及 FTS5 寫入。

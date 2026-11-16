@@ -1,0 +1,12 @@
+PersonalWiki ExcelLab 0.6.5
+
+新增命令：excel-import-db-safety-check <report.json>
+- 讀取 0.6.3/0.6.4 格式的安全檢查報告。
+- 確認報告記錄的備份檔仍存在。
+- 重新計算備份 SHA-256 並與報告比對。
+- 重新執行備份資料庫 quick_check、foreign_key_check 及 Schema 比對。
+- 唯讀，不修改報告、備份、目標資料庫、Excel 或圖片。
+
+無新增套件。SQLite Schema Version 1 不變。
+沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+測試：ZIP integrity 通過；尚未 build/run（目前環境沒有 .NET SDK）。

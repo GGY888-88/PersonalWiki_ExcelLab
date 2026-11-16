@@ -1,0 +1,47 @@
+{
+  "SchemaVersion": 1,
+  "SourceFileName": "PersonalWiki_Import_Sample.xlsx",
+  "CreatedAtUtc": "2026-11-14T00:00:00+00:00",
+  "Sheets": [
+    {
+      "SheetName": "人物",
+      "HeaderRow": 1,
+      "FirstDataRow": 2,
+      "Columns": [
+        {
+          "SourceIndex": 1,
+          "SourceName": "名稱",
+          "TargetField": null,
+          "Mode": "Title",
+          "Description": null
+        },
+        {
+          "SourceIndex": 2,
+          "SourceName": "簡介",
+          "TargetField": null,
+          "Mode": "Content",
+          "Description": null
+        },
+        {
+          "SourceIndex": 3,
+          "SourceName": "生日",
+          "TargetField": "生日",
+          "Mode": "Attribute",
+          "Description": null
+        },
+        {
+          "SourceIndex": 4,
+          "SourceName": "代表作品",
+          "TargetField": "代表作品",
+          "Mode": "Attribute",
+          "Description": null
+        }
+      ]
+    }
+  ],
+  "Instructions": [
+    "此檔案只定義欄位對應，不會自行執行匯入。",
+    "每張工作表恰有一個 Title 欄位。",
+    "所有規則只標示 Review，不會自動修改或刪除資料。"
+  ]
+}

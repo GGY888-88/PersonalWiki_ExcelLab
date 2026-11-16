@@ -1,0 +1,16 @@
+PersonalWiki ExcelLab 0.5.6
+
+新增：
+- excel-import-batch-diff <database.db> <earlier-batch-id> <later-batch-id>
+- 唯讀比較兩個 Excel 匯入批次，依 normalized_title + entry_type 配對。
+- 回報新增、移除，以及標題、類型、摘要變更；附上前後快照及來源工作表/列號。
+
+安全：
+- 以 SQLite ReadOnly 模式開啟資料庫。
+- 不修改 Excel、資料庫、圖片或匯入批次。
+- 同一批次不可互相比較；兩個批次都必須存在。
+- 同一批次若同一識別鍵有多筆來源，僅取排序後第一筆作為代表。
+
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，不變。
+測試：ZIP integrity 已驗證；未編譯、未執行（目前環境無 .NET SDK）。

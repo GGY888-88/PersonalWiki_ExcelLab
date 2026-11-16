@@ -1,0 +1,18 @@
+PersonalWiki ExcelLab 0.6.2
+
+新增：預檢報告有效性檢查。
+
+命令：
+  dotnet run -c Release -- excel-import-preflight-check <report.json> <workbook.xlsm> <mapping.json> <rules.json>
+
+0.6.1 預檢 JSON 報告新增保存三個輸入檔案的 SHA-256：
+- 來源 Excel
+- mapping 設定
+- cleaning rules 設定
+
+驗證命令會重新計算三個檔案雜湊，檢查是否與報告一致，並確認原預檢 CanImport 狀態。任何輸入檔案有變動或原預檢未通過，CanImport 均為 false，結束碼 3。
+
+安全性：唯讀，不修改報告、Excel、設定檔、資料庫或圖片。
+相依套件：無新增，沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，不變。
+測試：ZIP 完整性通過；目前環境沒有 .NET SDK，未能編譯或實際執行。

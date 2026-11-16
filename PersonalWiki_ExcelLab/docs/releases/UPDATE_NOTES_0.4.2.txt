@@ -1,0 +1,13 @@
+PersonalWiki ExcelLab 0.4.2
+
+新增：
+- db-import-verify <database.db> <import.json>
+- 唯讀比對 JSON 與目標資料庫八個資料表的筆數。
+- 執行 SQLite foreign_key_check，檢查全文索引筆數是否與 entries 一致。
+- 回報每個資料表的預期/實際筆數、差異、外鍵違規及索引狀態；驗證失敗回傳結束碼 3。
+- 不修改資料庫、JSON、Excel 或圖片。
+
+使用方式：正式匯入後執行此命令確認結果。若目標資料庫原本不是空白資料庫，或匯入前後另有資料變更，筆數差異可能是預期結果。
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：維持 Version 1。
+測試：ZIP 完整性檢查通過；目前環境無 .NET SDK，未能執行 build/run。

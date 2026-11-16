@@ -1,0 +1,11 @@
+PersonalWiki ExcelLab 0.5.5
+
+新增：entry-source-trace <database.db> <entry-id>
+- 唯讀列出指定條目的所有來源追溯紀錄。
+- 顯示來源檔案、工作表、列號、來源表格、匯入批次及時間。
+- 可用於確認條目由哪個 Excel 檔案／工作表／列匯入，以及是否曾由多個批次建立來源紀錄。
+- 不修改資料庫、Excel 或圖片。
+
+相依套件：無新增，沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：維持 Version 1。
+測試：ZIP 完整性已檢查；未編譯、未執行（目前環境無 .NET SDK）。

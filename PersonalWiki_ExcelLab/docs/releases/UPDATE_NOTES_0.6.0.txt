@@ -1,0 +1,18 @@
+PersonalWiki ExcelLab 0.6.0
+
+新增：Excel 匯入整合預檢。
+
+命令：
+  dotnet run -c Release -- excel-import-preflight <workbook.xlsm> <mapping.json> <rules.json>
+
+整合既有檢查：
+- mapping 欄位對應驗證。
+- 清理規則設定驗證。
+- Dry-run 資料列檢查及需人工 Review 的筆數。
+- 輸出來源 Excel SHA-256、各項檢查結果、阻擋原因及安全提示。
+- CanImport=true 僅表示預檢通過；正式匯入仍會重新執行驗證。
+
+安全性：唯讀，不連線寫入 SQLite，不修改 Excel、圖片或設定檔。
+相依套件：無新增，沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，不變。
+測試：已檢視本次新增流程及命令接線；ZIP 完整性通過。環境沒有 .NET SDK，未能編譯或執行。

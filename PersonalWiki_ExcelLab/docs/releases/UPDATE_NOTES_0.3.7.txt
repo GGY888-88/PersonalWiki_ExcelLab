@@ -1,0 +1,14 @@
+PersonalWiki ExcelLab 0.3.7
+
+新增：
+- db-index-check：唯讀比較 entries 與 entries_fts 的筆數、缺漏及孤立索引項目。
+- db-index-rebuild：以單一 SQLite transaction 清空並重建 entries_fts，執行 FTS5 integrity-check 後提交。
+
+安全性：
+- 檢查命令唯讀。
+- 重建只重建全文索引，不修改條目、筆記、圖片、標籤或來源資料。
+- 重建使用交易；失敗時由 SQLite 回滾。
+
+相依套件：無新增，沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：維持 Version 1。
+測試：目前環境沒有 .NET SDK，未能編譯或實際執行；僅完成程式碼檢視及 ZIP 完整性檢查。

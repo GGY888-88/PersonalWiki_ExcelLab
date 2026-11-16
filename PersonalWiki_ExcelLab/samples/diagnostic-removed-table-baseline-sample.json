@@ -1,0 +1,45 @@
+{
+  "Format": "personalwiki-database-diagnostic-v1",
+  "CreatedAtUtc": "2026-11-13T00:00:00+00:00",
+  "Database": "C:\\PersonalWiki\\sample.db",
+  "DatabaseBytes": 65536,
+  "Health": {
+    "Database": "C:\\PersonalWiki\\sample.db",
+    "SchemaVersion": 1,
+    "QuickCheck": [
+      "ok"
+    ],
+    "QuickCheckPassed": true,
+    "ForeignKeyIssueCount": 0,
+    "ForeignKeyIssues": [],
+    "IsHealthy": true,
+    "ReadOnly": true
+  },
+  "SearchIndex": {
+    "Database": "C:\\PersonalWiki\\sample.db",
+    "EntryCount": 10,
+    "IndexedCount": 10,
+    "MissingCount": 0,
+    "OrphanCount": 0,
+    "IsConsistent": true,
+    "ReadOnly": true
+  },
+  "PageSizeBytes": 4096,
+  "PageCount": 16,
+  "FreePageCount": 2,
+  "UsedPageCount": 14,
+  "IndexCount": 5,
+  "Tables": [
+    {
+      "Table": "entries",
+      "Rows": 10
+    },
+    {
+      "Table": "notes",
+      "Rows": 4
+    }
+  ],
+  "Warnings": [],
+  "IsHealthy": true,
+  "ReportPath": "C:\\PersonalWiki\\baseline.json"
+}

@@ -1,0 +1,16 @@
+PersonalWiki ExcelLab 0.2.2 更新紀錄
+
+新增／調整：
+1. import-preview 改為精簡摘要輸出，避免終端機被完整 JSON 填滿。
+2. 工作表摘要顯示狀態、標題候選列、欄位數、資料列數、空白列數、最多 12 個欄位名稱、表格範圍及已擷取預覽列數。
+3. 可使用 --json <路徑> 另存完整分析結果，包含完整欄位與預覽資料。
+4. JSON 報告資料夾不存在時會自動建立。
+
+用法：
+dotnet run -c Release -- import-preview .\資料.xlsm 10
+dotnet run -c Release -- import-preview .\資料.xlsm 10 --json .\Reports\資料預覽.json
+
+相依套件：未新增。
+來源 Excel：只讀取，不修改。
+資料庫：本版不執行正式匯入。
+版本資料夾：解壓後仍為 PersonalWiki_ExcelLab，不帶版本號。

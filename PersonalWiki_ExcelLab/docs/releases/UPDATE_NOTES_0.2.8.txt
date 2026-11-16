@@ -1,0 +1,24 @@
+PersonalWiki ExcelLab 0.2.8 更新紀錄
+
+新增功能
+- 新增 import-dry-run 命令：依 mapping 與清理規則唯讀掃描匯入候選資料。
+- 先執行既有 mapping / clean-rules 驗證；任何 Error 都會停止 Dry-run。
+- 依啟用規則統計命中列數，並計算至少命中一項規則的唯一資料列數。
+- 報告提供每項規則最多 20 個 Excel 列號樣本，不輸出儲存格內容。
+- 支援 missing-title、duplicate-title、edge-whitespace、control-characters、excel-error。
+
+使用方式
+ dotnet run -c Release -- import-dry-run .\資料.xlsm .\mapping.json .\cleaning-rules.json .\dry-run-report.json
+
+安全限制
+- 只讀取來源 Excel、mapping JSON、rules JSON。
+- 不修改或另存來源 Excel，不寫入 SQLite，不建立正式條目。
+- Action 仍只支援 Review；Dry-run 結果是預估檢查報告，不代表已匯入或已修正。
+
+依賴
+- 無新增套件。
+- 沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+
+測試狀態
+- ZIP 完整性檢查待執行。
+- 本執行環境未提供 dotnet SDK，尚未編譯或實際執行；不可視為已通過執行測試。

@@ -1,0 +1,12 @@
+PersonalWiki ExcelLab 0.2.9
+
+新增：
+- db-init <database.db>：建立 SQLite 知識庫資料結構，支援初次初始化及版本檢查。
+- db-info <database.db>：唯讀檢查 schema 版本、資料表及各表筆數。
+- schema v1：import_batches、entries、entry_fields、entry_notes、entry_images、entry_sources、entry_tags、entries_fts。
+- 建立外鍵、唯一限制、檢索索引及來源 Excel 工作表/列號追溯欄位。
+- 高於程式支援版本的資料庫會拒絕降版，避免破壞資料。
+
+安全：只建立空白資料庫結構；不讀取/修改來源 Excel，不執行正式匯入。
+相依套件：無新增；沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+測試：目前環境未確認有 dotnet SDK，尚未編譯或執行 SQLite 實測。僅進行程式碼與封裝檢查。

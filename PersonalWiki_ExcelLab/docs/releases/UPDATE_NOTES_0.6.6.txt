@@ -1,0 +1,12 @@
+PersonalWiki ExcelLab 0.6.6
+
+新增：
+- excel-import-db-safe <database.db> <file.xlsx|file.xlsm> <mapping.json> <rules.json> <backup.db>
+- 依序執行 mapping/cleaning/dry-run 預檢、資料庫健康檢查與匯入前備份、輸入檔 SHA-256 再確認、正式交易式匯入、匯入批次驗證。
+- 預檢未通過時不建立備份、不寫入資料庫；預檢後來源或設定檔變動時停止匯入並保留備份。
+- 匯入後驗證失敗時回報批次 ID，不自動刪除或覆寫資料；匯入前備份保留供人工還原。
+
+安全：原始 Excel 唯讀；圖片檔案不複製、不修改；備份不覆蓋既有檔案；正式匯入會寫入 SQLite。
+相依套件：無新增。沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+資料庫 Schema：Version 1，未變更。
+測試：ZIP 完整性檢查；未編譯、未執行（目前環境沒有 dotnet SDK）。

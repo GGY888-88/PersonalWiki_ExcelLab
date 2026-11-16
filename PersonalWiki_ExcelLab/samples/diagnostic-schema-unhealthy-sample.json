@@ -1,0 +1,55 @@
+{
+  "Format": "personalwiki-database-diagnostic-v1",
+  "CreatedAtUtc": "2026-11-13T03:00:00+00:00",
+  "Database": "D:\\PersonalWiki\\migrated.db",
+  "DatabaseBytes": 65536,
+  "Health": {
+    "Database": "D:\\PersonalWiki\\migrated.db",
+    "SchemaVersion": 2,
+    "QuickCheck": [
+      "database disk image is malformed"
+    ],
+    "QuickCheckPassed": false,
+    "ForeignKeyIssueCount": 1,
+    "ForeignKeyIssues": [
+      {
+        "Table": "notes",
+        "RowId": 9,
+        "ParentTable": "entries",
+        "ForeignKeyIndex": 0
+      }
+    ],
+    "IsHealthy": false,
+    "ReadOnly": true
+  },
+  "SearchIndex": {
+    "Database": "D:\\PersonalWiki\\migrated.db",
+    "EntryCount": 10,
+    "IndexedCount": 8,
+    "MissingCount": 2,
+    "OrphanCount": 0,
+    "IsConsistent": false,
+    "ReadOnly": true
+  },
+  "PageSizeBytes": 4096,
+  "PageCount": 16,
+  "FreePageCount": 2,
+  "UsedPageCount": 14,
+  "IndexCount": 5,
+  "Tables": [
+    {
+      "Table": "entries",
+      "Rows": 10
+    },
+    {
+      "Table": "notes",
+      "Rows": 4
+    }
+  ],
+  "Warnings": [
+    "SQLite quick_check 未通過。",
+    "全文索引筆數或關聯與條目資料不一致。"
+  ],
+  "IsHealthy": false,
+  "ReportPath": "D:\\PersonalWiki\\degraded.json"
+}

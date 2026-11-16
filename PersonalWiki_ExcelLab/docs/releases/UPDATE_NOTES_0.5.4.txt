@@ -1,0 +1,11 @@
+PersonalWiki ExcelLab 0.5.4
+
+新增：excel-import-batch-entries <database.db> <batch-id> [page] [page-size]
+- 唯讀列出指定 Excel 匯入批次建立的條目。
+- 顯示條目 ID、標題、類型、摘要、來源工作表、來源列號及匯入時間。
+- 支援分頁；頁碼從 1 開始，每頁 1–200 筆，預設 50。
+- 不修改資料庫、Excel 或圖片。
+
+相依套件：無新增，沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：維持 Version 1。
+測試：ZIP 完整性已檢查；未編譯、未執行（目前環境無 .NET SDK）。

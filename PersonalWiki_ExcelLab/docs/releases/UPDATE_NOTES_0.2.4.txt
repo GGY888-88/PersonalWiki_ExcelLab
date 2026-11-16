@@ -1,0 +1,23 @@
+PersonalWiki ExcelLab 0.2.4 更新紀錄
+
+新增：
+1. mapping-template：依目前 Excel 工作表及欄位產生 JSON 欄位對應範本。
+2. mapping-check：檢查工作表/欄位是否仍與來源一致、Mode 是否有效、TargetField 是否重複。
+3. 每張工作表最多允許一個 Title 欄位；未設定 Title 會列警告。
+4. 支援 Unmapped、Title、Content、Attribute、Ignore 五種用途。
+
+用法：
+dotnet run -c Release -- mapping-template .\資料.xlsm .\mapping.json
+# 編輯 mapping.json 後
+dotnet run -c Release -- mapping-check .\資料.xlsm .\mapping.json
+
+相依套件：未新增。
+來源 Excel：只讀取，不修改。
+資料庫：本版不執行正式匯入。
+既有功能：保留 0.2.3 原有命令與服務。
+解壓資料夾：PersonalWiki_ExcelLab，不帶版本號。
+
+注意：
+- 範本預設所有欄位為 Unmapped，避免未經確認就把欄位當成正式資料。
+- TargetField 是後續資料庫欄位代碼，需由使用者編輯指定。
+- 尚未在 Windows .NET 10 環境實際編譯，需由使用者端建置確認。

@@ -1,0 +1,11 @@
+PersonalWiki ExcelLab 0.5.7
+
+新增：
+- excel-import-batch-diff-json <database.db> <earlier-batch-id> <later-batch-id> <report.json>
+- 將兩批次差異比較結果輸出為 JSON，包含新增、移除、變更項目及前後快照。
+- 報告使用 CreateNew，不覆蓋既有檔案；資料庫以唯讀模式開啟。
+
+安全：不修改 Excel、資料庫或圖片。輸出檔僅在指定路徑新建。
+相依套件：無新增；DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+Schema：Version 1，不變。
+測試：ZIP integrity 已驗證；未編譯、未執行（目前環境無 .NET SDK）。

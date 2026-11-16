@@ -1,0 +1,10 @@
+PersonalWiki ExcelLab 0.3.0
+
+新增：
+- entry-add <database.db> <title> <type> [summary]：新增知識條目。
+- entry-search <database.db> <keyword> [limit]：使用 SQLite FTS5 搜尋條目標題及摘要。
+- 條目與全文索引在同一 transaction 寫入；重複名稱/類型由資料庫唯一限制保護。
+
+安全：僅寫入使用者指定的 SQLite 資料庫；不讀取或修改 Excel。新增前需先 db-init。
+相依套件：無新增；沿用 DocumentFormat.OpenXml 3.5.1、Microsoft.Data.Sqlite 10.0.14。
+測試：目前環境沒有 dotnet SDK，尚未編譯或執行測試；需在有 .NET 10 SDK 的 Windows 環境實測 FTS5 支援及 CRUD。
